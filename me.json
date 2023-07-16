@@ -1,0 +1,9 @@
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "dateOfBirth": "1985-01-01",
+  "createdAt": "2019-01-01T00:00:00.000Z",
+  "updatedAt": "2019-01-01T00:00:00.000Z",
+  "id": "5c2c2b0c1c9d440000b5f0b0",
+  "email": "john.smith@demo.com"
+}

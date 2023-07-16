@@ -10,6 +10,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "expo": "^49.0.0",
     "expo-blur": "~12.4.1",
     "expo-constants": "~14.4.2",
@@ -26,7 +27,8 @@
     "react-native-maps": "1.7.1",
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.6",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

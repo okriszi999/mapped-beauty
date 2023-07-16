@@ -1,15 +1,25 @@
 import { Slot, usePathname } from "expo-router";
 import { navOptions } from "@src/data/routes";
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function Layout() {
   const pathname = usePathname();
 
-  const route = navOptions.find((option) => option.path === pathname);
+  const isMain = pathname === "/screens/main";
+  const currentRoute = navOptions.find((route) => route.path === pathname);
+
+  const CalculatedView = isMain ? View : SafeAreaView;
 
   return (
-    <View>
-      {/* <Text>{route?.name}</Text> */}
+    <CalculatedView className={`${isMain ? "" : "p-2"}`}>
+      {!isMain && (
+        <View className="flex flex-row justify-between items-center">
+          <Text className="text-2xl text-primary-foreground opacity-50">
+            {currentRoute?.name}
+          </Text>
+        </View>
+      )}
       <Slot />
-    </View>
+    </CalculatedView>
   );
 }

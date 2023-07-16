@@ -4,14 +4,17 @@ import Mapview from "react-native-maps";
 import { Ionicons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useColorScheme } from "nativewind";
+import { colors } from "@src/data/colors";
 
 export default function MainScreen() {
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null
   );
 
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [displayMode, setDisplayMode] = useState<"dark" | "light">("light");
 
   useEffect(() => {
     (async () => {
@@ -27,11 +30,10 @@ export default function MainScreen() {
   }, []);
 
   function changeDisplayMode() {
-    const mode: typeof displayMode = displayMode === "dark" ? "light" : "dark";
-    setDisplayMode(mode);
+    toggleColorScheme();
   }
 
-  const isLightMode = displayMode === "light";
+  const isLightMode = colorScheme === "light";
 
   return (
     <View>
@@ -42,14 +44,16 @@ export default function MainScreen() {
               <Ionicons
                 name={isLightMode ? "moon-sharp" : "sunny-sharp"}
                 size={24}
-                color={isLightMode ? "black" : "white"}
+                color={
+                  isLightMode ? colors.primary.dark : colors.primary.content
+                }
               />
             </TouchableOpacity>
           </View>
           <Mapview
             showsCompass={false}
             showsUserLocation={true}
-            userInterfaceStyle={displayMode}
+            userInterfaceStyle={colorScheme}
             className="h-screen w-full"
             initialRegion={{
               latitude: location?.coords.latitude || 37.78825,
