@@ -1,6 +1,5 @@
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Redirect } from "expo-router";
 
 export default function MainScreen() {
-  return <Text>Hello, world!</Text>;
+  return <Redirect href="screens/main" />;
 }

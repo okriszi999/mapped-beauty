@@ -1,13 +1,17 @@
+import Navigation from "@src/components/navigation";
 import { Slot } from "expo-router";
-import { Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Layout() {
   return (
-    <SafeAreaView>
-      <Text>
+    <View className="h-screen bg-primary relative">
+      <View>
         <Slot />
-      </Text>
-    </SafeAreaView>
+      </View>
+      <Navigation />
+      <StatusBar style="light" />
+    </View>
   );
 }
