@@ -1,7 +1,7 @@
 export const colors = {
   primary: {
     DEFAULT: "#641ae6",
-    focus: "#4c0fd9",
+    focus: "#310d6e",
     content: "#ffffff",
     dark: "#4c1d95",
   },

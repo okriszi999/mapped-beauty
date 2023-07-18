@@ -1,8 +1,15 @@
-import { Slot, usePathname } from "expo-router";
+import { Slot, usePathname, useRouter } from "expo-router";
 import { navOptions } from "@src/data/routes";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 export default function Layout() {
+  const { push } = useRouter();
+  const isAuthenticated = false;
+
+  if (!isAuthenticated) {
+    return push("authentication/login");
+  }
   const pathname = usePathname();
 
   const isMain = pathname === "/screens/main";
